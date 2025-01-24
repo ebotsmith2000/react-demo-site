@@ -1,18 +1,22 @@
 version: 0.2
-
 phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo Installing
   pre_build:
     commands:
-      - echo "Installing dependencies..."
+      - echo Installing source NPM dependencies.
       - npm install
   build:
     commands:
-      - echo "Running tests..."
-      - npm test
+      - echo Build started on `date`
+      - echo Compiling the Node.js code
+      - npm run build
   post_build:
     commands:
-      - echo "Building and packaging..."
-      - npm run build
+      - echo Build completed on `date`
 artifacts:
   files:
     - '**/*'
