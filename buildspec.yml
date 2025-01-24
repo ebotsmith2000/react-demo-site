@@ -8,6 +8,7 @@ phases:
   pre_build:
     commands:
       - npm install -g npm@10.8.2
+      - npm install react-scripts
   build:
     commands:
       - npm run build
