@@ -1,18 +1,18 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 20
-
   pre_build:
     commands:
-      - npm install -g npm@10.8.2
-      - npm install react-scripts
+      - echo "Installing dependencies..."
+      - npm install
   build:
     commands:
+      - echo "Running tests..."
+      - npm test
+  post_build:
+    commands:
+      - echo "Building and packaging..."
       - npm run build
-
 artifacts:
   files:
     - '**/*'
